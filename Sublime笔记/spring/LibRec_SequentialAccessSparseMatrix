@@ -1,2 +1,0 @@
-SequentialAccessSparseMatrix 类继承自AbstractMatrix
-声明了 RowSequentialAccessSparseMatrix
