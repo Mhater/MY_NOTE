@@ -1,0 +1,23 @@
+GSON库提供了简单的方法实现 java 对象与 JSON 对象的相互转换
+#Gson 要点
+	*推荐把成员变量声明为 private 
+	*所有当前类，以及父类中的字段都默认被序列化或者反序列化
+	*如果某个字段被 transient 关键词修饰就不会被序列化或反序列化
+#Gson 依赖
+	implementation 'com.google.code.gson:gson:2.8.5'
+
+#Gson 简单使用
+	private Gson gson;
+
+	GsonBuilder builder=new GsonBuilder();   
+    gson=builder.serializeNulls()    //缺失的字段用null 填充
+                .setPrettyPrinting() //格式化输出
+                .create();           //创建
+
+     Student s1=new Student();//类的创建
+        s1.setsName("tom" );
+        //序列化
+        String string=gson.toJson(s1);
+    
+        //反序列化
+        Student s2=gson.fromJson(string,Student.class);
